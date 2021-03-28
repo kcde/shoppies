@@ -1,0 +1,29 @@
+.searchBar {
+    background-color: #fff;
+    width: 100%;
+    padding: 1.5rem 1rem;
+}
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+    border: 1px solid #a39f9f;
+    margin-top: 0.5rem;
+    padding: 0.2rem 0.5rem;
+}
+
+.inputContainer input {
+    width: 100%;
+    border: none;
+    outline-style: none;
+    padding-left: 0.5rem;
+}
+
+.inputContainer:focus-within {
+    border-color: navy;
+}
+
+.searchIcon {
+    width: 24px;
+    height: 24px;
+}
