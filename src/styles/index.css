@@ -2,10 +2,10 @@
 
 @tailwind components;
 .btn {
-    @apply px-3 py-0.5 border border-gray-300 bg-gray-50 text-gray-700 rounded-md hover:translate-x-1 transform transition focus:outline-none focus:ring focus:ring-offset-2 focus:ring-gray-700 focus:ring-opacity-25 active:bg-gray-200;
+  @apply px-3 py-0.5 border border-gray-300 bg-gray-50 text-gray-700 rounded-md hover:translate-x-1 transform transition focus:outline-none focus:ring focus:ring-offset-2 focus:ring-gray-700 focus:ring-opacity-25 active:bg-gray-200;
 }
-.btn-disabled {
-    @apply transform-none bg-gray-100 text-gray-400 focus:ring-0;
+.btn:disabled {
+  @apply transform-none bg-gray-100 text-gray-400 focus:ring-0 cursor-not-allowed;
 }
 
 @tailwind utilities;

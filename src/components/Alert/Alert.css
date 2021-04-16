@@ -1,0 +1,41 @@
+.Alert {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.Alert .Reason {
+  color: white;
+  padding: 0.125rem;
+  margin-left: 0.5rem;
+}
+
+.Error {
+  color: #ffc5bb;
+}
+.Error .Reason {
+  background-color: #ffc5bb;
+}
+
+.Success {
+  color: #84be7c;
+}
+
+.Success .Reason {
+  background-color: #84be7c;
+}
+
+.Warning {
+  color: #dfc674;
+}
+
+.Warning .Reason {
+  background-color: #dfc674;
+}
+
+.Info {
+  color: #79c9f8;
+}
+
+.Info .Reason {
+  background-color: #79c9f8;
+}

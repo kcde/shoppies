@@ -1,19 +1,32 @@
 import React from 'react';
+import Button from '../Button/Button';
+import Alert from '../Alert/Alert';
 
 function Nominations(props) {
-    return (
-        <div className="bg-white mt-5 py-4 px-4 border border-gray-300 rounded-md">
-            <p className="font-semibold mb-5">Nominations</p>
-            <div className="pl-12">
-                <ul className="list-disc space-y-3">
-                    <li>
-                        Rambo (1999)
-                        <button className="btn">Remove</button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    );
+  return (
+    <div className="bg-white mt-5 py-4 px-4 border border-gray-300 rounded-md md:flex-1 md:self-start relative">
+      <p className="font-semibold mb-5">Nominations</p>
+      {props.Nominations.length === 5 ? (
+        <Alert
+          message="you're done with nominations"
+          reason="Maximum of 5 nominations"
+          type="Success"
+        />
+      ) : null}
+      <div className="pl-12">
+        <ul className="list-disc space-y-3 divide-y divide-gray-200">
+          {props.Nominations.map((nomination) => {
+            return (
+              <li key={nomination.id} className="py-4">
+                {nomination.title} ({nomination.year})
+                <Button clicked={() => props.removeNominate(nomination.id)}>Remove</Button>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </div>
+  );
 }
 
 export default Nominations;
