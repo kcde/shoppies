@@ -84,12 +84,14 @@ class App extends Component {
             this.setState({ searchResults: [], errorMessage: response.data.Error });
           } else {
             //? using loadash to get unique results from the api. some seach return duplicate values!!
+            console.log(response);
             const uniqueResults = uniqWith(response.data.Search, isEqual);
             const responseSearchResults = uniqueResults.slice(0, 5).map((result) => {
               return {
                 title: result.Title,
                 year: result.Year,
                 id: result.imdbID,
+                poster: result.Poster,
               };
             });
 

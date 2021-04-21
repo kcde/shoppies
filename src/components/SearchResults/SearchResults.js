@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../Button/Button';
 import Alert from '../Alert/Alert';
+import Poster from '../Poster/Poster';
 
 function SearchResults(props) {
   return (
@@ -13,16 +14,19 @@ function SearchResults(props) {
         <Alert message="please refine your search" reason={props.searchError} type="Error" />
       ) : null}
       <div className="pl-12">
-        <ul className="list-disc space-y-3 divide-y divide-gray-200">
+        <ul className="list-none space-y-3 divide-y divide-gray-200">
           {props.searchResult.map((result) => (
-            <li key={result.id} className="py-4">
-              {result.title} ({result.year})
-              <Button
-                disable={props.nominationsNumber === 5 || props.disable(result.id)}
-                clicked={() => props.clickNominate(result.id)}
-              >
-                Nominate
-              </Button>
+            <li key={result.id} className="py-4 flex items-center">
+              <Poster src={result.poster} alt={result.title} />
+              <div>
+                {result.title} ({result.year})
+                <Button
+                  disable={props.nominationsNumber === 5 || props.disable(result.id)}
+                  clicked={() => props.clickNominate(result.id)}
+                >
+                  Nominate
+                </Button>
+              </div>
             </li>
           ))}
 

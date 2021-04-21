@@ -4,9 +4,9 @@ import './Alert.css';
 const Alert = (props) => {
   const alertIcons = {
     Error: <i className="fas fa-exclamation-circle mr-1"></i>,
-    Success: <i class="fas fa-check-circle mr-1"></i>,
-    Warning: <i class="fas fa-exclamation-triangle mr-1"></i>,
-    Info: <i class="fas fa-info-circle mr-1 text-b"></i>,
+    Success: <i className="fas fa-check-circle mr-1"></i>,
+    Warning: <i className="fas fa-exclamation-triangle mr-1"></i>,
+    Info: <i className="fas fa-info-circle mr-1 text-b"></i>,
   };
 
   const classList = ['Alert', props.type].join(' ');

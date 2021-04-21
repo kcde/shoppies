@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../Button/Button';
 import Alert from '../Alert/Alert';
+import Poster from '../Poster/Poster';
 
 function Nominations(props) {
   return (
@@ -17,9 +18,12 @@ function Nominations(props) {
         <ul className="list-disc space-y-3 divide-y divide-gray-200">
           {props.Nominations.map((nomination) => {
             return (
-              <li key={nomination.id} className="py-4">
-                {nomination.title} ({nomination.year})
-                <Button clicked={() => props.removeNominate(nomination.id)}>Remove</Button>
+              <li key={nomination.id} className="py-4 flex items-center">
+                <Poster src={nomination.poster} alt={nomination.title} />
+                <div>
+                  {nomination.title} ({nomination.year})
+                  <Button clicked={() => props.removeNominate(nomination.id)}>Remove</Button>
+                </div>
               </li>
             );
           })}
