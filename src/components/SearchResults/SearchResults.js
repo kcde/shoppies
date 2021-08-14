@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import ShoppiesContext from '../../context/shoppies-context';
 import Button from '../Button/Button';
 import Alert from '../Alert/Alert';
 import Poster from '../Poster/Poster';
 
 function SearchResults(props) {
+  const { nominationsList, addNomination, searchResultsList } = useContext(ShoppiesContext);
   return (
     <div className="bg-white mt-5 py-4 px-4 border border-gray-300 rounded-md md:flex-1 md:self-start">
       <p className="font-semibold mb-5">
@@ -15,14 +17,14 @@ function SearchResults(props) {
       ) : null}
       <div className="pl-12">
         <ul className="list-none space-y-3 divide-y divide-gray-200">
-          {props.searchResult.map((result) => (
+          {searchResultsList.map((result) => (
             <li key={result.id} className="py-4 flex items-center">
               <Poster src={result.poster} alt={result.title} />
               <div>
                 {result.title} ({result.year})
                 <Button
-                  disable={props.nominationsNumber === 5 || props.disable(result.id)}
-                  clicked={() => props.clickNominate(result.id)}
+                  disable={nominationsList.length === 5 || props.disable(result.id)}
+                  clicked={() => addNomination(result.id)}
                 >
                   Nominate
                 </Button>
