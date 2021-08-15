@@ -46,7 +46,7 @@ const App = () => {
                 poster: result.Poster,
               };
             });
-
+            setErrorMessage('');
             addSearchResult(responseSearchResults);
           }
         });
