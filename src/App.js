@@ -13,11 +13,12 @@ const App = () => {
   const [errorMessage, setErrorMessage] = useState('');
 
   const changeHandler = (e) => {
-    console.log('changed');
     setText(e.target.value);
+
     if (text === '') {
       setErrorMessage('');
       addSearchResult([]);
+      // setText('');
     }
   };
   const nominateDisableHandler = (id) => {
@@ -36,7 +37,9 @@ const App = () => {
             addSearchResult([]);
             setErrorMessage(response.data.Error);
           } else {
+            setText('');
             //? using loadash to get unique results from the api. some seach return duplicate values!!
+
             const uniqueResults = uniqWith(response.data.Search, isEqual);
             const responseSearchResults = uniqueResults.slice(0, 5).map((result) => {
               return {
