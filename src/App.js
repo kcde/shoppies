@@ -29,25 +29,27 @@ const App = () => {
   useEffect(() => {
     setErrorMessage('');
     if (text.trim() !== '') {
-      axios.get(`http://www.omdbapi.com/?s=${text}&apikey=85b72b38`).then((response) => {
-        if (response.data.hasOwnProperty('Error')) {
-          addSearchResult([]);
-          setErrorMessage(response.data.Error);
-        } else {
-          //? using loadash to get unique results from the api. some seach return duplicate values!!
-          const uniqueResults = uniqWith(response.data.Search, isEqual);
-          const responseSearchResults = uniqueResults.slice(0, 5).map((result) => {
-            return {
-              title: result.Title,
-              year: result.Year,
-              id: result.imdbID,
-              poster: result.Poster,
-            };
-          });
+      axios
+        .get(`http://www.omdbapi.com/?s=${text}&apikey=${process.env.REACT_APP_API_KEY}`)
+        .then((response) => {
+          if (response.data.hasOwnProperty('Error')) {
+            addSearchResult([]);
+            setErrorMessage(response.data.Error);
+          } else {
+            //? using loadash to get unique results from the api. some seach return duplicate values!!
+            const uniqueResults = uniqWith(response.data.Search, isEqual);
+            const responseSearchResults = uniqueResults.slice(0, 5).map((result) => {
+              return {
+                title: result.Title,
+                year: result.Year,
+                id: result.imdbID,
+                poster: result.Poster,
+              };
+            });
 
-          addSearchResult(responseSearchResults);
-        }
-      });
+            addSearchResult(responseSearchResults);
+          }
+        });
     }
   }, [text]);
 
