@@ -30,7 +30,7 @@ const App = () => {
     setErrorMessage('');
     if (text.trim() !== '') {
       axios
-        .get(`http://www.omdbapi.com/?s=${text}&apikey=${process.env.REACT_APP_API_KEY}`)
+        .get(`https://www.omdbapi.com/?s=${text}&apikey=${process.env.REACT_APP_API_KEY}`)
         .then((response) => {
           if (response.data.hasOwnProperty('Error')) {
             addSearchResult([]);
